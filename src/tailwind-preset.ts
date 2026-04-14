@@ -3,6 +3,7 @@ export const quvikPreset = {
     extend: {
       fontFamily: {
         sans: ['var(--font-sora)', 'sans-serif'],
+        serif: ['var(--font-sora)', 'sans-serif'],
       },
       colors: {
         navy: '#1e264c',
