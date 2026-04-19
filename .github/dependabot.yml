@@ -1,0 +1,36 @@
+version: 2
+updates:
+  # npm-pakker (Next.js, React, Supabase, etc.)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "Europe/Oslo"
+    open-pull-requests-limit: 5
+    # Grupper patch- og minor-oppdateringer for å unngå PR-spam
+    groups:
+      patch-updates:
+        update-types:
+          - "patch"
+      minor-updates:
+        update-types:
+          - "minor"
+    # Ignorer major version bumps — tas manuelt som egne oppgraderinger
+    # (caret-ranges i package.json blokkerer disse fra npm install,
+    #  men Dependabot kan likevel foreslå dem som separate PR-er)
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    labels:
+      - "dependencies"
+
+  # GitHub Actions (hvis brukt i repo-et)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
