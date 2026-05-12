@@ -15,7 +15,8 @@
   },
   "files": ["dist", "src/assets", "src/styles"],
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "prepare": "tsup"
   },
   "peerDependencies": {
     "next": "^14.0.0 || ^15.0.0",
