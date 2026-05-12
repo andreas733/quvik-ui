@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" role="img" aria-label="Quvik">
+  <rect width="200" height="48" fill="#1e264c" rx="6" />
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#ffffff" font-family="'Sora',sans-serif" font-size="28" font-weight="500">
+    Quvik
+  </text>
+</svg>
