@@ -4,24 +4,23 @@ description: Internt operativt arbeidsverktøy for Quvik AS — rolig, presist, 
 colors:
   # --- @quvik/ui-tokens (tokens.css --color-* + Tailwind-preset). Navn = token-navn. ---
   navy: "#1e264c"        # --color-navy / preset navy
-  mid: "#2c3871"         # --color-mid / preset mid  (preset gir også `dark` = samme verdi)
+  mid: "#2c3871"         # --color-mid / preset mid
   accent: "#3b4b95"      # --color-accent / preset accent
-  night: "#101427"       # preset night / quvik.dark  (= tokens.css --color-dark)
+  night: "#101427"       # --color-night / preset night
   border: "#e6e6e6"      # --color-border / preset border
   bg: "#f9f9f9"          # --color-bg / preset bg
-  # --- Deneb-lokale (app/tailwind.config.ts; INGEN @quvik/ui-token) ---
-  qviktext: "#1a1f3a"
-  muted: "#6b7280"
-  offwhite: "#f7f6f3"
-  warmgray: "#e8e6e1"
-  surface: "#ffffff"     # generisk hvit; ikke et navngitt token noe sted
-  # --- Tailwind-standardpalett (status; ikke @quvik/ui, ikke Deneb-lokalt) ---
-  positive: "#15803d"    # green-700
-  positive-bg: "#f0fdf4" # green-50
-  warning: "#92400e"     # amber-800
-  warning-bg: "#fffbeb"  # amber-50
-  danger: "#dc2626"      # red-600
-  danger-bg: "#fef2f2"   # red-50
+  qviktext: "#1a1f3a"    # --color-qviktext / preset qviktext
+  muted: "#6b7280"       # --color-muted / preset muted
+  offwhite: "#f7f6f3"    # --color-offwhite / preset offwhite
+  warmgray: "#e8e6e1"    # --color-warmgray / preset warmgray
+  surface: "#ffffff"     # --color-surface / preset surface
+  # --- Status-tokens (@quvik/ui; verdiene matcher Tailwind-paletten) ---
+  positive: "#15803d"    # --color-positive / preset positive  (green-700)
+  positive-bg: "#f0fdf4" # --color-positive-bg / preset positive-bg  (green-50)
+  warning: "#92400e"     # --color-warning / preset warning  (amber-800)
+  warning-bg: "#fffbeb"  # --color-warning-bg / preset warning-bg  (amber-50)
+  danger: "#dc2626"      # --color-danger / preset danger  (red-600)
+  danger-bg: "#fef2f2"   # --color-danger-bg / preset danger-bg  (red-50)
 typography:
   display:
     fontFamily: "Sora, sans-serif"
@@ -159,36 +158,37 @@ glassmorphism, gradient-tekst, side-stripe-borders).
 En nøktern, kjølig palett bygget rundt dyp navy og ett blått aksent, satt mot
 nær-nøytrale grå og en lys, nesten hvit bakgrunn.
 
-**Token-kilder.** Bare seks farger er ekte `@quvik/ui`-tokens (`navy`, `mid`,
-`accent`, `night`, `border`, `bg`), eksportert både som `--color-*` i
-`tokens.css` og i Tailwind-presetet. Merk to navne-feller i presetet: `dark`
-peker på `#2c3871` (samme som `mid`), mens `#101427` heter både `night` og
-`quvik.dark` der og `--color-dark` i `tokens.css`. Resten av paletten under er
-Deneb-lokal (definert i `app/tailwind.config.ts`) eller Tailwinds
-standardpalett, og finnes ikke som `@quvik/ui`-tokens.
+**Token-kilder.** Hele paletten er `@quvik/ui`-tokens med likt navn i
+`tokens.css` (`--color-*`) og Tailwind-presetet: `navy`, `mid`, `accent`,
+`night`, `border`, `bg`, `qviktext`, `muted`, `offwhite`, `warmgray`, `surface`
+og statusfargene `positive`/`positive-bg`, `warning`/`warning-bg`,
+`danger`/`danger-bg`. Navnet er det samme begge steder — f.eks. heter `#2c3871`
+`mid` (`--color-mid`) og `#101427` `night` (`--color-night`). Statusfargene har
+samme verdier som Tailwinds standardpalett (green/amber/red), men brukes som
+navngitte `@quvik/ui`-tokens.
 
 ### Primary
 - **Deep Navy** — token `navy` (#1e264c): Bærer sidebar, innloggingsskjerm, mørke avatar-/badge-flater og display-tall (`text-navy`). Systemets identitetsfarge og dominerende mørke flate.
 - **Signal Blue** — token `accent` (#3b4b95): Det ene aksentet. Primærknapper, fokus-ring, aktive lenker, fremdriftsindikatorer og diskrete fremhevinger (`bg-accent/[0.08]`). Sjeldenheten er poenget.
 
 ### Secondary
-- **Midnight Blue** — token `mid` (#2c3871): Hover-tilstand på navy-flater og mellomtone mellom navy og aksent. Kanonisk `@quvik/ui`-navn er `mid`; samme verdi nås også via presetets `dark` og den Deneb-lokale `navy-mid` (`app/tailwind.config.ts`).
-- **Night** — token `night` (#101427): Dypeste navy for overlegg og ekstra kontrast. Heter `night` / `quvik.dark` i presetet, men `--color-dark` i `tokens.css` — samme verdi, ulikt navn.
+- **Midnight Blue** — token `mid` (#2c3871): Hover-tilstand på navy-flater og mellomtone mellom navy og aksent. Samme navn begge steder (`--color-mid` / preset `mid`); samme verdi nås også via den Deneb-lokale `navy-mid` (`app/tailwind.config.ts`).
+- **Night** — token `night` (#101427): Dypeste navy for overlegg og ekstra kontrast. Samme navn begge steder: `--color-night` i `tokens.css` og `night` i presetet.
 
 ### Neutral
-- **Ink** — Deneb-lokal `qviktext` (#1a1f3a): Primær brødtekst og overskrifter på lyse flater. Det mørke endepunktet — bruk denne, ikke lys grå, for lesbarhet. *Ikke et `@quvik/ui`-token.*
-- **Muted Gray** — Deneb-lokal `muted` (#6b7280): Sekundærtekst, hint og labels på lyse flater. Aldri til lengre brødtekst. *Ikke et `@quvik/ui`-token.*
+- **Ink** — token `qviktext` (#1a1f3a): Primær brødtekst og overskrifter på lyse flater. Det mørke endepunktet — bruk denne, ikke lys grå, for lesbarhet.
+- **Muted Gray** — token `muted` (#6b7280): Sekundærtekst, hint og labels på lyse flater. Aldri til lengre brødtekst.
 - **Hairline** — token `border` (#e6e6e6): Standard border på kort, inputs og skillelinjer.
 - **Canvas** — token `bg` (#f9f9f9): Sidens grunnlerret bak de hvite kortene.
-- **Surface** — `surface` (#ffffff): Kort, paneler, inputs. Generisk hvit; ikke et navngitt token noe sted.
-- **Warm Offwhite / Warm Gray** — Deneb-lokale `offwhite` (#f7f6f3) / `warmgray` (#e8e6e1): Varmere nøytral-par til markdown-/lesepaneler og mykere borders i innholdstunge flater. *Ikke `@quvik/ui`-tokens.*
+- **Surface** — token `surface` (#ffffff): Kort, paneler, inputs. Ren hvit for arbeidsflater over lerretet.
+- **Warm Offwhite / Warm Gray** — tokene `offwhite` (#f7f6f3) / `warmgray` (#e8e6e1): Varmere nøytral-par til markdown-/lesepaneler og mykere borders i innholdstunge flater.
 
 ### Tertiary (status)
-Tailwinds standardpalett (ikke `@quvik/ui`-tokens), brukt via klasser som
-`text-green-700` / `bg-green-50`:
-- **Positive Green** — `green-700` på `green-50` (#15803d på #f0fdf4): «live», godkjent, suksess.
-- **Warning Amber** — `amber-800` på `amber-50` (#92400e på #fffbeb): venter, advarsel, oppmerksomhet.
-- **Danger Red** — `red-600` på `red-50` (#dc2626 på #fef2f2): feil, avvist, destruktivt.
+`@quvik/ui`-statustokens, brukt via klasser som `text-positive` / `bg-positive-bg`.
+Verdiene matcher Tailwinds standardpalett (green/amber/red):
+- **Positive Green** — tokene `positive` / `positive-bg` (#15803d på #f0fdf4, = green-700/green-50): «live», godkjent, suksess.
+- **Warning Amber** — tokene `warning` / `warning-bg` (#92400e på #fffbeb, = amber-800/amber-50): venter, advarsel, oppmerksomhet.
+- **Danger Red** — tokene `danger` / `danger-bg` (#dc2626 på #fef2f2, = red-600/red-50): feil, avvist, destruktivt.
 
 ### Named Rules
 **The One Accent Rule.** Det finnes nøyaktig ett aksent: Signal Blue (#3b4b95).
