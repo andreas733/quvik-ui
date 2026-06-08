@@ -34,7 +34,7 @@
     "@marsidev/react-turnstile": "^1.0.0"
   },
   "devDependencies": {
-    "@types/node": "^22.0.0",
+    "@types/node": "^22.19.20",
     "@types/react": "^18.3.12",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
